@@ -54,7 +54,7 @@ exports.create = (req, res) => {
 
 // Retrieve and return all notes from the database.
 exports.findAll = (req, res) => {
-    Card.find()
+    Card.find().sort({createdAt: -1})
     .then(cards => {
         res.send(cards);
     }).catch(err => {

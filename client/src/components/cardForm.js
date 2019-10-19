@@ -120,6 +120,7 @@ class CardForm extends Component {
                 this.setState({
                     cardAdded: true
                 });
+                
             }
         });
     }
