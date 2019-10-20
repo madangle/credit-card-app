@@ -38,8 +38,12 @@ app.get('/', (req, res) => {
 require('./app/routes/card.routes.js')(app);
 
 // listen for requests
-app.listen(4000, () => {
-    console.log("Server is listening on port 4000");
-});
+if(!module.parent) {
+    app.listen(4000, () => {
+        console.log("Server is listening on port 4000");
+    });
+}
 
 
+
+module.exports = app;

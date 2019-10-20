@@ -1,1 +1,1 @@
-{ "DBHost": "mongodb://localhost:27017/credit-cards" }
+{ "DBHost": "mongodb://localhost:27017/credit-cards-test-db" }

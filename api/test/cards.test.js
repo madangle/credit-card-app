@@ -19,10 +19,11 @@ describe('Cards', () => {
            done();           
         });        
     });
-    /*
-    * Test the /GET route
-    */
+
     describe('/GET Cards', () => {
+        /*
+        * Test the /GET route
+        */
         it('it should GET all the Cards', (done) => {
             chai.request(server)
                 .get('/cards/getall')
@@ -33,13 +34,11 @@ describe('Cards', () => {
                 done();
             });
         });
-    });
 
-    /*
-    * Test the /POST route
-    */
-    describe('/POST card', () => {
-        it('it should not POST a card without pages field', (done) => {
+        /*
+        * Test the /GET route
+        */
+        it('It should return a status 200', (done) => {
             let card = {
                 name: "John Doe",
                 number: 38520000023237,
@@ -50,14 +49,8 @@ describe('Cards', () => {
             .send(card)
             .end((err, res) => {
                 res.should.have.status(200);
-                res.body.should.be.a('object');
-                res.body.should.have.property('errors');
-                res.body.errors.should.have.property('pages');
-                res.body.errors.pages.should.have.property('kind').eql('required');
                 done();
             });
         });
     });
 });
-
-module.exports = server;
