@@ -1,10 +1,10 @@
 {
-  "name": "node-easy-notes-app",
+  "name": "credit-card-application",
   "version": "1.0.0",
-  "description": "Never miss a thing in Life. Take notes quickly. Organize and keep track of all your notes.",
+  "description": "Credit card application",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --timeout 10000"
   },
   "keywords": [
     "Express",
@@ -13,7 +13,7 @@
     "Mongoose",
     "Notes"
   ],
-  "author": "callicoder",
+  "author": "rishikesh",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -21,5 +21,11 @@
     "express": "^4.16.3",
     "luhn": "^2.4.0",
     "mongoose": "^5.2.8"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.2.2",
+    "request": "^2.88.0"
   }
 }

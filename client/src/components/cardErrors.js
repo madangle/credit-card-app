@@ -6,7 +6,7 @@ export const FormErrors = ({formErrors}) =>
             if(formErrors[fieldName].length > 0){
                 return (
                     <div className="alert alert-danger" role="alert" key={i}>
-                        {fieldName} {formErrors[fieldName]}
+                       {formErrors[fieldName]}
                     </div>
                 )        
             } 

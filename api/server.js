@@ -30,29 +30,9 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
-function validateLuhn(cardNumber){
-    console.log(cardNumber);
-    var cardLength = cardNumber.length;
-    var nSum = 0;
-    var isSecond = false;
-
-    for (var i = cardLength - 1; i >= 0; i-- ){
-        var d = parseInt(cardNumber.charAt(i)) - 0;
-        if(isSecond){
-            d = d * 2;
-        }
-        nSum += d/10;
-        nSum += d % 10;
-        
-        isSecond = !isSecond;
-    }
-    console.log((nSum % 10 == 0) ? "Valid" : "invalid");
-    return (nSum % 10 == 0);
-}
-validateLuhn("4916463101684210");
 // define a simple route
 app.get('/', (req, res) => {
-    res.json({"message": "Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes."});
+    res.json({"message": "Welcome to credit card application api"});
 });
 
 require('./app/routes/card.routes.js')(app);
@@ -61,3 +41,5 @@ require('./app/routes/card.routes.js')(app);
 app.listen(4000, () => {
     console.log("Server is listening on port 4000");
 });
+
+

@@ -1,7 +1,7 @@
 const Card = require('../models/card.model.js');
-var Luhn = require("luhn");
+const Luhn = require("../helpers/luhn.helper");
 
-// Create and Save a new Note
+// Create and save a new Card
 exports.create = (req, res) => {
     // Validate request
 
@@ -33,7 +33,7 @@ exports.create = (req, res) => {
         });
     }
     
-    // Create a Note
+    // Create a Card
     const card = new Card({
         name: req.body.name || "Untitled Card", 
         number: req.body.number,
@@ -41,7 +41,7 @@ exports.create = (req, res) => {
         balance: req.body.balance || 0
     });
 
-    // Save Note in the database
+    // Save Card in the database
     card.save()
     .then(data => {
         res.send(data);
@@ -52,7 +52,7 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve and return all notes from the database.
+// Retrieve and return all Cards from the database.
 exports.findAll = (req, res) => {
     Card.find().sort({createdAt: -1})
     .then(cards => {
